@@ -18,6 +18,8 @@ public class Account {
     // 1. Structure is in place.
     // 2. Need to tell Hibernate what this field is. Go to getter and add '@OneToMany()
    private List<Transaction> transactions = new ArrayList<>();
+   // For ManyToMany relationship with User
+   private List<User> users = new ArrayList<>();
 
     @Id // Assigns Primary Key to getAccountId()
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-Increment the Id/Primary Key
@@ -45,6 +47,22 @@ public class Account {
 
     public void setTransactions(List<Transaction> transactions) {
         this.transactions = transactions;
+    }
+
+
+    // ------------------------
+    // What's happening below?
+    // 1. Assign a ManyToMany annotation
+    // 2. Since the parent table, 'User' has the 'JoinTable' you need add 'mappedBy' to the ManyToMany annotation.
+    // 3. Ensure that you are using the correct variable name from List in the User class, aka 'accounts'
+    // ------------------------
+    @ManyToMany(mappedBy = "accounts")
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }
 
