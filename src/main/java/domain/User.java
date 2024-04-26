@@ -19,6 +19,7 @@ public class User {
     private String name;
     // For ManyToMany relationship with Account
     private List<Account> accounts = new ArrayList<>();
+    private Address address;
 
     // @Id - Using @Id annotation tells the SQL Table what the Primary Key is.
     //       We know the Primary Key is getUserId but Hibernate doesn't intuitively know.
@@ -88,5 +89,14 @@ public class User {
 
     public void setAccounts(List<Account> accounts) {
         this.accounts = accounts;
+    }
+
+    @OneToOne(mappedBy = "user")
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }
