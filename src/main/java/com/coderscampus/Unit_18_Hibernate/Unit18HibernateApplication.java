@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
-@EntityScan("domain")
+@EntityScan("com/coderscampus/Unit_18_Hibernate/domain")
 public class Unit18HibernateApplication {
 
 	public static void main(String[] args) {

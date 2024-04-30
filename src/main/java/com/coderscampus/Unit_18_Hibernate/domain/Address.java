@@ -1,4 +1,4 @@
-package domain;
+package com.coderscampus.Unit_18_Hibernate.domain;
 
 import jakarta.persistence.*;
 

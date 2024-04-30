@@ -1,8 +1,6 @@
-package domain;
+package com.coderscampus.Unit_18_Hibernate.domain;
 
 import jakarta.persistence.*;
-
-import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Entity

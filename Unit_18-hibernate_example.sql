@@ -12,3 +12,5 @@ SELECT * FROM transactions;
 SELECT * FROM accounts;
 
 -- DROP DATABASE hibernate_example;
+
+SELECT * FROM users;
