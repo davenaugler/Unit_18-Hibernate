@@ -8,19 +8,19 @@
 <body>
 <section class="section">
     <div class="container">
-        <h2 class="title mb-2">Users</h2>
+        <h2 class="title mb-3">Users</h2>
     </div>
-    <table class="table is-striped is-narrow is-hoverable">
+    <table class="table is-striped is-narrow is-hoverable ml-4">
         <thead>
         <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Username</th>
+            <th class="has-text-centered">User ID</th>
+            <th class="has-text-centered">Name</th>
+            <th class="has-text-centered">Username</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="user, iterStat : ${users}">
-            <td th:text="${iterStat.count}"></td>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.userId}"></td>
             <td th:text="${user.name}"></td>
             <td th:text="${user.username}"></td>
         </tr>
@@ -29,3 +29,21 @@
 </section>
 </body>
 </html>
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>Users</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Users</h1>-->
+
+<!--<div th:each="user : ${users}">-->
+<!--    <span th:text="${user.userId}"></span><br/>-->
+<!--    <span th:text="${user.username}"></span><br/>-->
+<!--    <span th:text="${user.name}"></span><br/>-->
+<!--    <span th:text="${user.password}"></span>-->
+<!--    <hr/>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
