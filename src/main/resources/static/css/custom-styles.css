@@ -1,0 +1,7 @@
+.table td, .table th {
+    border-right: 1px solid #dddddd;
+}
+/* Optional: Remove right border from the last column */
+.table td:last-child, .table th:last-child {
+    border-right: none;
+}

@@ -1,29 +1,31 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="http://thymeleaf.org">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Users</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--    <h1>Users</h1>-->
-<!--    <div th:each="user : ${users}">-->
-<!--        <span th:text="${user.username}"></span>-->
-<!--    </div>-->
-
-
-<!--</body>-->
-<!--</html>-->
-
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
 <head>
     <title>Users</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet"type="text/css" href="/css/custom-styles.css">
 </head>
 <body>
-<h1>Users</h1>
-
-<div th:each="user : ${users}">
-    <span th:text="${user.username}"></span>
-</div>
+<section class="section">
+    <div class="container">
+        <h2 class="title mb-2">Users</h2>
+    </div>
+    <table class="table is-striped is-narrow is-hoverable">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Username</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user, iterStat : ${users}">
+            <td th:text="${iterStat.count}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.username}"></td>
+        </tr>
+        </tbody>
+    </table>
+</section>
 </body>
 </html>
