@@ -1,7 +1,38 @@
+/*ENTIRE HTML PAGE*/
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.site {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.site-content {
+    flex: 1; /* Ensures that the footer can push to the bottom */
+}
+
+/*TABLES*/
 .table td, .table th {
     border-right: 1px solid #dddddd;
 }
 /* Optional: Remove right border from the last column */
 .table td:last-child, .table th:last-child {
     border-right: none;
+}
+
+/*.footer {*/
+/*    position: absolute;*/
+/*    bottom: 10%;*/
+/*    left: 50%;*/
+/*    transform: translateX(-50%);*/
+/*    text-align: center;*/
+/*}*/
+
+/*FOOTER*/
+.footer {
+    height: 8%; /* Adjust height as needed between 10% to 20% */
+    /*min-height: 12px; !* Optional: Set a minimum height *!*/
 }

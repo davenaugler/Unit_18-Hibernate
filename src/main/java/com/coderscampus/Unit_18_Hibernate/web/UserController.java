@@ -23,6 +23,7 @@ public class UserController {
     public String getAllUsers(ModelMap model) {
         List<User> users = userService.findAll();
         model.put("users", users);
+        model.addAttribute("pageTitle", "Users");
         return "users";
     }
 

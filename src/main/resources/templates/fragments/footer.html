@@ -1,0 +1,14 @@
+<footer th:fragment="footer" class="footer">
+    <div class="content has-text-centered">
+        <p>&copy; <span id="currentYear"></span> Daves Devs LLC</p>
+    </div>
+
+    <script th:inline="javascript">
+        // Get the current year
+        var currentYear = new Date().getFullYear();
+
+        // Set the current year in the copyright notice
+        document.getElementById("currentYear").textContent = currentYear;
+    </script>
+</footer>
+
