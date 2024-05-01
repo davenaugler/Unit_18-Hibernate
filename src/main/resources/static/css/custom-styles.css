@@ -12,6 +12,7 @@ html, body {
 
 .site-content {
     flex: 1; /* Ensures that the footer can push to the bottom */
+    overflow: auto;  /* Adds scrolling to content if needed */
 }
 
 /*TABLES*/
@@ -19,20 +20,14 @@ html, body {
     border-right: 1px solid #dddddd;
 }
 /* Optional: Remove right border from the last column */
-.table td:last-child, .table th:last-child {
-    border-right: none;
-}
-
-/*.footer {*/
-/*    position: absolute;*/
-/*    bottom: 10%;*/
-/*    left: 50%;*/
-/*    transform: translateX(-50%);*/
-/*    text-align: center;*/
+/*.table td:last-child, .table th:last-child {*/
+/*    border-right: none;*/
 /*}*/
 
 /*FOOTER*/
 .footer {
-    height: 8%; /* Adjust height as needed between 10% to 20% */
-    /*min-height: 12px; !* Optional: Set a minimum height *!*/
+    height: 10%;  /* Adjust height as needed between 10% to 20% */
+    margin-top: auto;  /* Pushes the footer to the bottom */
+    display: flex;
+    justify-content: center;  /* Horizontally center content */
 }

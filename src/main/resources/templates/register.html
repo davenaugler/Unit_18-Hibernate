@@ -3,20 +3,47 @@
 <div th:replace="~{fragments/head :: head(${pageTitle})}"></div>
 <head> <!--  Git rid of once Controller has "User Registration" added to it-->
     <!--    <meta charset="UTF-8">-->
-    <title>User Registration</title> <!--  Git rid of once Controller has "User Registration" added to it-->
+    <title>Create Account</title> <!--  Git rid of once Controller has "User Registration" added to it-->
 </head> <!--  Git rid of once Controller has "User Registration" added to it-->
+
 <body class="site">
-<header class="has-text-centered">Users Registration Page</header>
+
+<header>
+    <h1 class="title is-1 has-text-centered mt-3">Create your Account</h1>
+</header>
+
 <main class="site-content">
     <section class="section">
         <div class="container">
-            <h2 class="title mb-3">Users Registration</h2>
+            <h2 class="title is-2 mb-3">Create Account</h2>
         </div>
-
+        <form action="/register" method="POST">
+            <div class="field">
+                <label class="label">Username</label>
+                <div class="control">
+                    <input class="input is-focused" type="text" th:field="${user.username}" placeholder="">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                    <input class="input" type="password" th:field="${user.password}" placeholder="">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Full Name</label>
+                <div class="control">
+                    <input class="input" type="text" th:field="${user.name}" placeholder="">
+                </div>
+            </div>
+            <div>
+                <input class="button is-link is-rounded mt-2" type="submit" value="Create Account">
+            </div>
+        </form>
     </section>
 </main>
 
-<footer th:replace="fragments/footer :: footer"></footer>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
 
 </body>
 </html>

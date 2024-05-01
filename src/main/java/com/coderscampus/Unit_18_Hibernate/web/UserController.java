@@ -6,6 +6,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.coderscampus.Unit_18_Hibernate.service.UserService;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Arrays;
 import java.util.List;
@@ -33,4 +35,21 @@ public class UserController {
         model.put("users", Arrays.asList(user));
         return "users";
     }
+
+    @GetMapping("/register")
+    public String getCreateUser(ModelMap model) {
+        model.put("user", new User());
+        return "register";
+    }
+
+    @PostMapping("/register")
+    public String postCreateUser(User user) {
+        System.out.println("user: " + user);
+        userService.createUser(user);
+        return "redirect:/register";
+    }
+
+
+
+
 }
