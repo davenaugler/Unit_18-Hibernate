@@ -9,35 +9,37 @@
 <body class="site">
 
 <header>
-    <h1 class="title is-1 has-text-centered mt-3">Create your Account</h1>
+    <h1 class="title is-1 has-text-centered mt-3 has-text-light">Create your Account</h1>
 </header>
 
 <main class="site-content">
     <section class="section">
-        <div class="container">
-            <h2 class="title is-2 mb-3">Create Account</h2>
+<!--        <div class="container">-->
+        <div class="">
+            <h2 class="title is-2 mb-4 has-text-light">Create Account</h2>
         </div>
         <form action="/register" method="POST">
             <div class="field">
-                <label class="label">Username</label>
+                <label class="label has-text-light">Username</label>
                 <div class="control">
                     <input class="input is-focused" type="text" th:field="${user.username}" placeholder="">
                 </div>
             </div>
             <div class="field">
-                <label class="label">Password</label>
+                <label class="label has-text-light">Password</label>
                 <div class="control">
                     <input class="input" type="password" th:field="${user.password}" placeholder="">
                 </div>
             </div>
             <div class="field">
-                <label class="label">Full Name</label>
+                <label class="label has-text-light">Full Name</label>
                 <div class="control">
                     <input class="input" type="text" th:field="${user.name}" placeholder="">
                 </div>
             </div>
-            <div>
-                <input class="button is-link is-rounded mt-2" type="submit" value="Create Account">
+            <div class="buttons mt-5">
+                <input class="button is-link is-dark is-rounded" type="submit" value="Create Account">
+                <a class="button is-rounded is-info is-dark ml-3" href="/users">All Users</a>
             </div>
         </form>
     </section>

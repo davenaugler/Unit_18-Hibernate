@@ -5,30 +5,69 @@
 <body class="site">
 
 <header>
-    <h1 class="title is-1 has-text-centered mt-3">Users Page</h1>
+    <h1 class="title is-1 has-text-centered mt-4 has-text-light">Users Page</h1>
 </header>
 
-<main class="site-content">
+<main class= "site-content">
     <section class="section">
-        <div class="container">
-            <h2 class="title is-2 mb-3">Users</h2>
+        <!--  <div class="container">-->
+        <div class="">
+            <h2 class="title is-2 mb-3 has-text-light">Users</h2>
         </div>
-        <table class="table is-striped is-bordered is-narrow is-hoverable ml-4">
+
+        <div th:if="${#lists.size(users) == 1}">
+            <form action="" method="POST">
+                <div class="field">
+                    <label class="label has-text-light">Username</label>
+                    <div class="control">
+                        <input class="input is-focused" type="text" th:field="${user.username}" placeholder="">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label has-text-light">Password</label>
+                    <div class="control">
+                        <input class="input" type="password" th:field="${user.password}" placeholder="">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label has-text-light">Full Name</label>
+                    <div class="control">
+                        <input class="input" type="text" th:field="${user.name}" placeholder="">
+                    </div>
+                </div>
+
+                <div class="buttons mt-5">
+                    <input class="button is-link is-dark is-rounded" type="submit" value="Update User Account">
+                    <a class="button is-rounded is-info is-dark ml-3" href="/users">All Users</a>
+                </div>
+            </form>
+
+        </div>
+
+
+        <table th:unless="${#lists.size(users) == 1}" class="table is-striped is-bordered is-narrow is-hoverable ml-4">
             <thead>
             <tr>
                 <th class="has-text-centered">User ID</th>
                 <th class="has-text-centered">Name</th>
                 <th class="has-text-centered">Username</th>
+                <th class="has-text-centered">Password</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="user : ${users}">
                 <td th:text="${user.userId}"></td>
+                <td>
+                    <a th:href="@{/users/{userId}(userId=${user.userId})}" th:text="${user.name}"></a>
+                </td>
                 <td th:text="${user.name}"></td>
                 <td th:text="${user.username}"></td>
+                <td th:text="${user.password}"></td>
             </tr>
             </tbody>
         </table>
+
+
     </section>
 </main>
 

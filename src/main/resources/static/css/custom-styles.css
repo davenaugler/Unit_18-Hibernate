@@ -1,5 +1,12 @@
 /*ENTIRE HTML PAGE*/
+
+/*body {*/
+/*    background-color: #14161a;*/
+/*}*/
+
+
 html, body {
+    background-color: #353a45;
     height: 100%;
     margin: 0;
 }
