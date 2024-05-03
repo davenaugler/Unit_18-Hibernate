@@ -37,16 +37,23 @@
                 </div>
 
                 <div class="buttons mt-5">
-                    <input class="button is-link is-dark is-rounded" type="submit" value="Update User Account">
-                    <a class="button is-rounded is-info is-dark ml-3" href="/users">All Users</a>
+                    <a class="button is-rounded is-info is-dark" href="/users">All Users</a>
+                    <input class="button is-link is-dark is-rounded ml-3" type="submit" value="Update User Account">
                 </div>
+
+                <!--  COMMENTED OUT CODE ALLOWS "BUTTONS" TO BE ON SAME LINE WHILE FUNCTIONING AS INTENDED-->
+<!--                <div class="buttons mt-5">-->
+<!--                    <a class="button is-rounded is-info is-dark" href="/users">All Users</a>-->
+<!--                    <input class="button is-link is-dark is-rounded ml-3" type="submit" value="Update User Account">-->
+<!--                    <button type="button" class="button is-danger is-dark is-rounded ml-3" onclick="document.getElementById('deleteForm').submit()">Delete User Account</button>-->
+<!--                </div>-->
             </form>
+<!--            <form id="deleteForm" th:action="@{/users/{userId}/delete(userId=${user.userId})}" method="POST" style="display: none;"></form>-->
             <form th:action="@{/users/{userId}/delete(userId=${user.userId})}" method="POST">
                 <div class="buttons mt-5">
                     <input class="button is-danger is-dark is-rounded " type="submit" value="Delete User Account">
                 </div>
             </form>
-
         </div>
 
 
@@ -70,8 +77,9 @@
             </tr>
             </tbody>
         </table>
-
-
+        <div class="buttons mt-5 ml-4" th:if="${user == null or user.userId == null}">
+            <a class="button is-rounded is-info is-dark" href="/register">Create Account</a>
+        </div>
     </section>
 </main>
 

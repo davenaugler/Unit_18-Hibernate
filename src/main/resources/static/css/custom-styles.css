@@ -31,6 +31,16 @@ html, body {
 /*    border-right: none;*/
 /*}*/
 
+
+/*FORM BUTTON ALIGNMENT*/
+.form-container {
+    display: flex;
+    align-items: center;
+}
+.form-container form {
+    margin-right: 10px;
+}
+
 /*FOOTER*/
 .footer {
     height: 10%;  /* Adjust height as needed between 10% to 20% */
