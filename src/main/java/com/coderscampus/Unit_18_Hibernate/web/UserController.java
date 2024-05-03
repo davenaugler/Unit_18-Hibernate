@@ -30,16 +30,16 @@ public class UserController {
     }
 
     @GetMapping("/users/{userId}")
-    public String getOneUser(ModelMap model, @PathVariable Long userId) {
+    public String getOneUser(@PathVariable Long userId, ModelMap model) {
         User user = userService.findById(userId);
         model.put("users", Arrays.asList(user));
-        // Code smell on line below
+        // Code smell, line below
         model.put("user", user);
         return "users";
     }
 
     @PostMapping("/users/{userId}")
-    public String postOneUser(@PathVariable Long userId, User user) {
+    public String postOneUser(User user) {
         userService.saveUser(user);
         return "redirect:/users/" + user.getUserId();
     }
@@ -57,7 +57,9 @@ public class UserController {
         return "redirect:/register";
     }
 
-
-
-
+    @PostMapping("/users/{userId}/delete")
+    public String deleteOneUser(@PathVariable Long userId, User user) {
+        userService.delete(userId);
+        return "redirect:/users";
+    }
 }

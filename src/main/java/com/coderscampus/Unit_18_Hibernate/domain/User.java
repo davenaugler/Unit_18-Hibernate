@@ -21,6 +21,7 @@ public class User {
     private List<Account> accounts = new ArrayList<>();
     private Address address;
 
+
     // @Id - Using @Id annotation tells the SQL Table what the Primary Key is.
     //       We know the Primary Key is getUserId but Hibernate doesn't intuitively know.
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,6 +55,7 @@ public class User {
     public String getPassword() {
         return password;
     }
+
 
     public void setPassword(String password) {
         this.password = password;

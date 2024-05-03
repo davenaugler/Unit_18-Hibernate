@@ -8,7 +8,7 @@
     <h1 class="title is-1 has-text-centered mt-4 has-text-light">Users Page</h1>
 </header>
 
-<main class= "site-content">
+<main class="site-content">
     <section class="section">
         <!--  <div class="container">-->
         <div class="">
@@ -41,6 +41,11 @@
                     <a class="button is-rounded is-info is-dark ml-3" href="/users">All Users</a>
                 </div>
             </form>
+            <form th:action="@{/users/{userId}/delete(userId=${user.userId})}" method="POST">
+                <div class="buttons mt-5">
+                    <input class="button is-danger is-dark is-rounded " type="submit" value="Delete User Account">
+                </div>
+            </form>
 
         </div>
 
@@ -60,7 +65,6 @@
                 <td>
                     <a th:href="@{/users/{userId}(userId=${user.userId})}" th:text="${user.name}"></a>
                 </td>
-                <td th:text="${user.name}"></td>
                 <td th:text="${user.username}"></td>
                 <td th:text="${user.password}"></td>
             </tr>
