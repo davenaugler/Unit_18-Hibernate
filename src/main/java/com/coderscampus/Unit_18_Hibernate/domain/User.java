@@ -2,6 +2,7 @@ package com.coderscampus.Unit_18_Hibernate.domain;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class User {
     private String username;
     private String password;
     private String name;
+    private LocalDateTime createdDate;
     // For ManyToMany relationship with Account
     private List<Account> accounts = new ArrayList<>();
     private Address address;
@@ -56,7 +58,6 @@ public class User {
         return password;
     }
 
-
     public void setPassword(String password) {
         this.password = password;
     }
@@ -69,6 +70,13 @@ public class User {
         this.name = name;
     }
 
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
+    }
 
     // ------------------------
     // What's happening below?
