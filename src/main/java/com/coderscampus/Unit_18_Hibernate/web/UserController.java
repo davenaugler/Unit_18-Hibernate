@@ -72,7 +72,7 @@ public class UserController {
 //            model.put("user", users.get(0));
 //        }
 //        return "users";
-    }
+//    }
 
     @GetMapping("/users/{userId}")
     public String getOneUser(@PathVariable Long userId, ModelMap model) {
