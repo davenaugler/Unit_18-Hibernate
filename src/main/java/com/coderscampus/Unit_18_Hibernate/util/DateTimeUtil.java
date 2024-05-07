@@ -13,4 +13,3 @@ public class DateTimeUtil {
         return zonedDateTime.format(formatter);
     }
 }
-

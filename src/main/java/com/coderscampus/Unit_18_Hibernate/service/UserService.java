@@ -54,6 +54,6 @@ public class UserService {
     }
 
     public List<User> findByCreatedDateBetween(LocalDateTime date1, LocalDateTime date2) {
-        return findByCreatedDateBetween(date1, date2);
+        return userRepo.findByCreatedDateBetween(date1, date2);
     }
 }

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.Arrays;
 import java.util.List;
 
@@ -57,6 +59,20 @@ public class UserController {
 //        }
 //        return "users";
 //    }
+
+//        @GetMapping("/users")
+//        public String getAllUsers(ModelMap model) {
+//        List<User> users = userService.findByCreatedDateBetween(LocalDateTime.of(2024, Month.JANUARY, 1, 0, 0), LocalDateTime.of(2024, Month.MAY, 7, 12, 10));
+//        model.put("users", users);
+//        model.addAttribute("pageTitle", "Users");
+//        if(users.size() == 1) {
+//            // This could throw an IndexOutOfBounds Exception if there
+//            // is no first element. Because we have a users.size check on size
+//            // prior to grabbing the first element, we are fine.
+//            model.put("user", users.get(0));
+//        }
+//        return "users";
+    }
 
     @GetMapping("/users/{userId}")
     public String getOneUser(@PathVariable Long userId, ModelMap model) {
