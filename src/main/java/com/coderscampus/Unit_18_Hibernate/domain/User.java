@@ -1,5 +1,6 @@
 package com.coderscampus.Unit_18_Hibernate.domain;
 
+import com.coderscampus.Unit_18_Hibernate.util.DateTimeUtil;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -70,12 +71,18 @@ public class User {
         this.name = name;
     }
 
+    @Column(name = "created_date")
     public LocalDateTime getCreatedDate() {
         return createdDate;
     }
 
     public void setCreatedDate(LocalDateTime createdDate) {
         this.createdDate = createdDate;
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        createdDate = LocalDateTime.now();
     }
 
     // ------------------------
@@ -117,6 +124,7 @@ public class User {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
+                ", createdDate=" + (createdDate != null ? DateTimeUtil.formatDateTimeToZone(createdDate, null) : "null") + // Using the utility method with the system's default time zone
                 ", accounts=" + accounts +
                 ", address=" + address +
                 '}';
