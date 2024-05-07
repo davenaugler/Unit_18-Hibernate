@@ -21,11 +21,40 @@ public class UserController {
         this.userService = userService;
     }
 
+//    @GetMapping("/users")
+//    public String getAllUsers(ModelMap model) {
+//        List<User> users = userService.findAll();
+//        model.put("users", users);
+//        model.addAttribute("pageTitle", "Users");
+//        return "users";
+//    }
+
+//    @GetMapping("/users")
+//    public String getAllUsers(ModelMap model) {
+//        List<User> users = userService.findByUsername("DaveN");
+//        model.put("users", users);
+//        model.addAttribute("pageTitle", "Users");
+//        if(users.size() == 1) {
+//            // This could throw an IndexOutOfBounds Exception if there
+//            // is no first element. Because we have a users.size check on size
+//            // prior to grabbing the first element, we are fine.
+//            model.put("user", users.get(0));
+//        }
+//        return "users";
+//    }
+
     @GetMapping("/users")
     public String getAllUsers(ModelMap model) {
-        List<User> users = userService.findAll();
+        List<User> users = userService.findByUsername("trevor@craftycodr.com");
+//        List<User> users = userService.findByUsernameAndName("trevor@craftycodr.com", "Trevor Page2");
         model.put("users", users);
         model.addAttribute("pageTitle", "Users");
+        if(users.size() == 1) {
+            // This could throw an IndexOutOfBounds Exception if there
+            // is no first element. Because we have a users.size check on size
+            // prior to grabbing the first element, we are fine.
+            model.put("user", users.get(0));
+        }
         return "users";
     }
 

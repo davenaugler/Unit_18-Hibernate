@@ -4,6 +4,7 @@ import com.coderscampus.Unit_18_Hibernate.domain.User;
 import org.springframework.stereotype.Service;
 import com.coderscampus.Unit_18_Hibernate.repository.UserRepository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,5 +33,27 @@ public class UserService {
 
     public void delete(Long userId) {
         userRepo.deleteById(userId);
+    }
+
+    public List<User> findByUserId(Long userId) {
+        return userRepo.findByUserId(userId);
+    }
+
+    // SELECT * FROM users WHERE username = :username
+    public List<User> findByUsername(String username) {
+        return userRepo.findByUsername(username);
+    }
+
+    // SELECT * FROM users WHERE name =:name
+    public List<User> findByName(String name) {
+        return userRepo.findByName(name);
+    }
+
+    public List<User> findByUsernameAndName(String username, String name) {
+        return userRepo.findByUsernameAndName(username, name);
+    }
+
+    public List<User> findByCreatedDateBetween(LocalDateTime date1, LocalDateTime date2) {
+        return findByCreatedDateBetween(date1, date2);
     }
 }

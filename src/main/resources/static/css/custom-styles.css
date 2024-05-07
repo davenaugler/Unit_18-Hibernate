@@ -1,14 +1,7 @@
 /*ENTIRE HTML PAGE*/
-
-/*body {*/
-/*    background-color: #14161a;*/
-/*}*/
-
-
 html, body {
-    background-color: #353a45;
-    /*Test Color*/
-    /*background-color: red;*/
+    /*background-color: #f3f6f6;*/
+    background-color: #f7f7f7;
     height: 100%;
     margin: 0;
 }

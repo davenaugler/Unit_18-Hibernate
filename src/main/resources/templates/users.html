@@ -5,40 +5,40 @@
 <body class="site">
 
 <header>
-    <h1 class="title is-1 has-text-centered mt-4 has-text-light">Users Page</h1>
+    <h1 class="title is-1 has-text-centered mt-4">Users Page</h1>
 </header>
 
 <main class="site-content">
     <section class="section">
         <!--  <div class="container">-->
         <div class="">
-            <h2 class="title is-2 mb-3 has-text-light">Users</h2>
+            <h2 class="title is-2 mb-3">Users</h2>
         </div>
 
         <div th:if="${#lists.size(users) == 1}">
             <form action="" method="POST">
                 <div class="field">
-                    <label class="label has-text-light">Username</label>
+                    <label class="label">Username</label>
                     <div class="control">
                         <input class="input is-focused" type="text" th:field="${user.username}" placeholder="">
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label has-text-light">Password</label>
+                    <label class="label">Password</label>
                     <div class="control">
                         <input class="input" type="password" th:field="${user.password}" placeholder="">
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label has-text-light">Full Name</label>
+                    <label class="label">Full Name</label>
                     <div class="control">
                         <input class="input" type="text" th:field="${user.name}" placeholder="">
                     </div>
                 </div>
 
                 <div class="buttons mt-5">
-                    <a class="button is-rounded is-info is-dark" href="/users">All Users</a>
-                    <input class="button is-link is-dark is-rounded ml-3" type="submit" value="Update User Account">
+                    <a class="button is-rounded is-link" href="/users">All Users</a>
+                    <input class="button  is-dark is-rounded ml-3" type="submit" value="Update User Account">
                 </div>
 
                 <!--  COMMENTED OUT CODE ALLOWS "BUTTONS" TO BE ON SAME LINE WHILE FUNCTIONING AS INTENDED-->
@@ -49,9 +49,9 @@
 <!--                </div>-->
             </form>
 <!--            <form id="deleteForm" th:action="@{/users/{userId}/delete(userId=${user.userId})}" method="POST" style="display: none;"></form>-->
-            <form th:action="@{/users/{userId}/delete(userId=${user.userId})}" method="POST">
+            <form th:action="@{/users/{userId}/delete(userId=${user.userId})}" method="POST" autocomplete="off">
                 <div class="buttons mt-5">
-                    <input class="button is-danger is-dark is-rounded " type="submit" value="Delete User Account">
+                    <input class="button is-info is-rounded " type="submit" value="Delete User Account">
                 </div>
             </form>
         </div>
@@ -78,7 +78,7 @@
             </tbody>
         </table>
         <div class="buttons mt-5 ml-4" th:if="${user == null or user.userId == null}">
-            <a class="button is-rounded is-info is-dark" href="/register">Create Account</a>
+            <a class="button is-rounded is-primary is-dark" href="/register">Create Account</a>
         </div>
     </section>
 </main>
