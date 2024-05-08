@@ -37,7 +37,9 @@
                 </div>
 
                 <div class="buttons mt-5">
+<!--                    Button #1-->
                     <a class="button is-rounded is-link" href="/users">All Users</a>
+<!--                    Button #2-->
                     <input class="button  is-dark is-rounded ml-3" type="submit" value="Update User Account">
                 </div>
 
@@ -51,6 +53,7 @@
 <!--            <form id="deleteForm" th:action="@{/users/{userId}/delete(userId=${user.userId})}" method="POST" style="display: none;"></form>-->
             <form th:action="@{/users/{userId}/delete(userId=${user.userId})}" method="POST" autocomplete="off">
                 <div class="buttons mt-5">
+<!--                    Button #3-->
                     <input class="button is-info is-rounded " type="submit" value="Delete User Account">
                 </div>
             </form>

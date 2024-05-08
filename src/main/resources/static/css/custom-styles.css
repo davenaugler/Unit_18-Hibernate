@@ -28,13 +28,14 @@ html, body {
 
 
 /*FORM BUTTON ALIGNMENT*/
-.form-container {
-    display: flex;
-    align-items: center;
-}
-.form-container form {
-    margin-right: 10px;
-}
+/*.form-container {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*}*/
+/*.form-container form {*/
+/*    margin-right: 10px;*/
+/*}*/
+
 
 /*FOOTER*/
 .footer {
