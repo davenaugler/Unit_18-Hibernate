@@ -59,7 +59,6 @@
             </form>
         </div>
 
-
         <table th:unless="${#lists.size(users) == 1}" class="table is-striped is-bordered is-narrow is-hoverable ml-4">
             <thead>
             <tr>
@@ -67,6 +66,8 @@
                 <th class="has-text-centered">Name</th>
                 <th class="has-text-centered">Username</th>
                 <th class="has-text-centered">Password</th>
+                <th class="has-text-centered">Checking Account</th>
+                <th class="has-text-centered">Savings Account</th>
             </tr>
             </thead>
             <tbody>
@@ -77,9 +78,16 @@
                 </td>
                 <td th:text="${user.username}"></td>
                 <td th:text="${user.password}"></td>
+                <td class="has-text-centered">
+                    <span th:each="account : ${user.accounts}" th:if="${account.accountName == 'Checking'}" th:text="${account.accountName}"></span>
+                </td>
+                <td class="has-text-centered">
+                    <span th:each="account : ${user.accounts}" th:if="${account.accountName == 'Saving'}" th:text="${account.accountName}"></span>
+                </td>
             </tr>
             </tbody>
         </table>
+
         <div class="buttons mt-5 ml-4" th:if="${user == null or user.userId == null}">
             <a class="button is-rounded is-primary is-dark" href="/register">Create Account</a>
         </div>

@@ -31,6 +31,21 @@ public class UserController {
         return "users";
     }
 
+
+//    @GetMapping("/users")
+//    public String getAllUsers(ModelMap model) {
+//        List<User> users = userService.findByUsername("DaveN");
+//        model.put("users", users);
+//        model.addAttribute("pageTitle", "Users");
+//        if(users.size() == 1) {
+//            // This could throw an IndexOutOfBounds Exception if there
+//            // is no first element. Because we have a users.size check on size
+//            // prior to grabbing the first element, we are fine.
+//            model.put("user", users.get(0));
+//        }
+//        return "users";
+//    }
+
 //    @GetMapping("/users")
 //    public String getAllUsers(ModelMap model) {
 //        List<User> users = userService.findByUsername("DaveN");
@@ -82,6 +97,17 @@ public class UserController {
         model.put("user", user);
         return "users";
     }
+
+    // For demonstration purpose only
+    // Not code to be used in real world application
+//    @GetMapping("/users/{userId}")
+//    public String getOneUser(@PathVariable Long userId, ModelMap model) {
+//        User user = userService.findExactlyOneUserByUsername("rwilson_tech");
+//        model.put("users", Arrays.asList(user));
+//        // Code smell, line below
+//        model.put("user", user);
+//        return "users";
+//    }
 
     @PostMapping("/users/{userId}")
     public String postOneUser(User user) {

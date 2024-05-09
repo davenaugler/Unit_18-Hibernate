@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class Address {
     private Long userId; // Not sure about this one
     private User user;
-    private String getAddressLine1;
+    private String addressLine1;
     private String addressLine2;
     private String city;
     private String region;
@@ -35,11 +35,11 @@ public class Address {
 
     @Column(length = 200)
     public String getGetAddressLine1() {
-        return getAddressLine1;
+        return addressLine1;
     }
 
     public void setGetAddressLine1(String getAddressLine1) {
-        this.getAddressLine1 = getAddressLine1;
+        this.addressLine1 = addressLine1;
     }
 
     @Column(length = 200)
