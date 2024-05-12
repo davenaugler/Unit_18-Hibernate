@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 // @Entity annotation is placed above the Class name to indicate the class is an entity
 //         and should be mapped to a database table.
@@ -13,7 +14,7 @@ import java.util.List;
 // @Table - @Table annotation, if your table is called something other than the Class name below, user,
 //          then you need to use '@Table(name="database_name_here")' to identify what the
 //          table name is. In this case 'user' is a pre-defined name and not usable.
-@Table(name="users")
+@Table(name = "users")
 public class User {
     private Long userId;
     private String username;
@@ -27,7 +28,8 @@ public class User {
 
     // @Id - Using @Id annotation tells the SQL Table what the Primary Key is.
     //       We know the Primary Key is getUserId but Hibernate doesn't intuitively know.
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     // @GeneratedValue(strategy = GenerationType.IDENTITY)
     //  This strategy relies on the database's identity column feature to generate
     //      the primary key values. It indicates that the database should automatically
@@ -97,9 +99,9 @@ public class User {
     // 7. Go do something similar to the child class, in this case, 'Account'
     // ------------------------
     @ManyToMany
-    @JoinTable(name="user_account",
-            joinColumns = @JoinColumn(name="user_id"),
-            inverseJoinColumns = @JoinColumn(name="account_id"))
+    @JoinTable(name = "user_account",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "account_id"))
     public List<Account> getAccounts() {
         return accounts;
     }
@@ -128,5 +130,17 @@ public class User {
                 ", accounts=" + accounts +
                 ", address=" + address +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User user)) return false;
+        return Objects.equals(getUserId(), user.getUserId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getUserId());
     }
 }

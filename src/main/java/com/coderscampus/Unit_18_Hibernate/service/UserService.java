@@ -7,6 +7,7 @@ import com.coderscampus.Unit_18_Hibernate.repository.UserRepository;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class UserService {
@@ -18,8 +19,8 @@ public class UserService {
     }
 
     // Build a method that returns all users
-    public List<User> findAll() {
-        return userRepo.findAll();
+    public Set<User> findAll() {
+        return userRepo.findAllUsersWithAccountsAndAddresses();
     }
 
     public User findById(Long userId) {
@@ -68,4 +69,5 @@ public class UserService {
 //    public List<User> findUserByNameLike(String name) {
 //        return userRepo.findUserByNameLike(name);
 //    }
+
 }

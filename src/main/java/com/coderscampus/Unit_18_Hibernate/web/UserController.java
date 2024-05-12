@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class UserController {
@@ -25,8 +26,11 @@ public class UserController {
 
     @GetMapping("/users")
     public String getAllUsers(ModelMap model) {
-        List<User> users = userService.findAll();
+        Set<User> users = userService.findAll();
         model.put("users", users);
+        if (users.size() == 1) {
+            model.put("user", users.iterator().next());
+        }
         model.addAttribute("pageTitle", "Users");
         return "users";
     }

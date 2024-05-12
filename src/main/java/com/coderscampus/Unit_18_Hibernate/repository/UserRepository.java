@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import javax.inject.Singleton;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 //                                                 entity , data type
 @Repository
@@ -40,6 +41,11 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("SELECT u FROM User u WHERE u.username = :username")
     List<User> findExactlyOneUserByUsername(String username);
 
+    @Query("SELECT u FROM User u"
+            + " LEFT JOIN FETCH u.accounts"
+            + " LEFT JOIN FETCH u.address")
+    Set<User> findAllUsersWithAccountsAndAddresses();
+
     // Mine
 //    @Query("SELECT u FROM User u WHERE u.username = :username")
 //    User findExactlyOneUserByUsername(String username);
@@ -52,9 +58,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 //    @Query("SELECT * FROM users WHERE name LIKE CONCAT('%', ?1, '%')")
 //    List<User> findUserByNameLike(String name);
-
-
-
 
 
 }
