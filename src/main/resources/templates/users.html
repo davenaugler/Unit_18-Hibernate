@@ -79,10 +79,12 @@
                 <td th:text="${user.username}"></td>
                 <td th:text="${user.password}"></td>
                 <td class="has-text-centered">
-                    <span th:each="account : ${user.accounts}" th:if="${account.accountName == 'Checking'}" th:text="${account.accountName}"></span>
+<!--                    Updated this line of code that it accepts the type of accounts we added to the UserService.java-->
+                    <span th:each="account : ${user.accounts}" th:if="${account.accountName == 'Checking' or account.accountName == 'Checking Account'}" th:text="${account.accountName}"></span>
                 </td>
                 <td class="has-text-centered">
-                    <span th:each="account : ${user.accounts}" th:if="${account.accountName == 'Saving'}" th:text="${account.accountName}"></span>
+<!--                    Updated this line of code that it accepts the type of accounts we added to the UserService.java-->
+                    <span th:each="account : ${user.accounts}" th:if="${account.accountName == 'Saving' or account.accountName == 'Savings Account'}" th:text="${account.accountName}"></span>
                 </td>
             </tr>
             </tbody>

@@ -1,6 +1,8 @@
 package com.coderscampus.Unit_18_Hibernate.service;
 
+import com.coderscampus.Unit_18_Hibernate.domain.Account;
 import com.coderscampus.Unit_18_Hibernate.domain.User;
+import com.coderscampus.Unit_18_Hibernate.repository.AccountRepository;
 import org.springframework.stereotype.Service;
 import com.coderscampus.Unit_18_Hibernate.repository.UserRepository;
 
@@ -13,9 +15,11 @@ import java.util.Set;
 public class UserService {
 
     private final UserRepository userRepo;
+    private final AccountRepository accountRepo;
 
-    public UserService(UserRepository userRepo) {
+    public UserService(UserRepository userRepo, AccountRepository accountRepo) {
         this.userRepo = userRepo;
+        this.accountRepo = accountRepo;
     }
 
     // Build a method that returns all users
@@ -28,7 +32,25 @@ public class UserService {
         return userOpt.orElse(new User());
     }
 
+    // When a user creates an account they will automatically get Checking account
     public User saveUser(User user) {
+        if (user.getUserId() == null) {
+            Account checking = new Account();
+            checking.setAccountName("Checking Account");
+            // Next 2 lines reference each outer, being a bidirectional relationship.
+            // With the account we add the user
+            checking.getUsers().add(user); // line 1
+
+            Account savings = new Account();
+            savings.setAccountName("Savings Account");
+            savings.getUsers().add(user);
+
+            // With the user we add the account
+            user.getAccounts().add(checking); // line 2
+            user.getAccounts().add(savings);
+            accountRepo.save(checking);
+            accountRepo.save(savings);
+        }
         return userRepo.save(user);
     }
 
