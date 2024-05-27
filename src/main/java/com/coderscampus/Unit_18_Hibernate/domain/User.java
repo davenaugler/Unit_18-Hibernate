@@ -96,9 +96,14 @@ public class User {
     // 4. Specify the JoinColumn on the parent side, which is 'user_id'
     // 5. Specify the InverseJoinColumn on the child side, which is 'account_id'
     // 6. Map this on the getter
-    // 7. Go do something similar to the child class, in this case, 'Account'
+    // 7. Go do something similar to the child class, in this case, 'Account's
     // ------------------------
-    @ManyToMany
+
+    // Good Rule of Thumb is to set Cascade Types to PERSIST and MERGE rather than to ALL
+    //   unless you know exactly what you are doing.
+    // The side effect of using CascadeType.ALL on 2 ManyToMany's is more than what I expect will be deleted
+    //   with REMOVE.
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "user_account",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "account_id"))
@@ -110,7 +115,12 @@ public class User {
         this.accounts = accounts;
     }
 
-    @OneToOne(mappedBy = "user")
+    // Cascade Type Merge added
+    // This is how you add multiple Cascade Types
+    // We use 'orphanRemoval = true' in tandem with 'CascadeType.REMOVE' to properly delete the associated child entity
+    @OneToOne(mappedBy = "user",
+            cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE},
+            orphanRemoval = true)
     public Address getAddress() {
         return address;
     }
