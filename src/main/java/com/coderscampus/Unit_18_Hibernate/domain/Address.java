@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 public class Address {
-    private Long userId; // Not sure about this one
+    private Long userId;
     private User user;
     private String addressLine1;
     private String addressLine2;
